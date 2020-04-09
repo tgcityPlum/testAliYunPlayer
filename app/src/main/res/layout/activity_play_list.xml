@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#aaa"
+    tools:context=".view.PlayListActivity">
+    <!--视频区域-->
+    <SurfaceView
+        android:id="@+id/surfaceView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+    <!-- 返回按钮-->
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:drawableLeft="@mipmap/ic_back"
+        android:onClick="onBack"
+        android:padding="8dp"
+        android:text="巧用大黄调理肠胃疾病"
+        android:textColor="#fff"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!--上一个按钮-->
+    <ImageView
+        android:id="@+id/ivPrevious"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:scaleType="centerCrop"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="16dp"
+        android:onClick="onPrevious"
+        android:adjustViewBounds="true"
+        android:src="@mipmap/ic_previous"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+    <!--暂停按钮-->
+    <ImageView
+        android:id="@+id/ivPause"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:scaleType="centerCrop"
+        android:layout_marginLeft="20dp"
+        android:onClick="onPlay"
+        android:adjustViewBounds="true"
+        android:src="@mipmap/ic_pause"
+        app:layout_constraintBottom_toBottomOf="@id/ivPrevious"
+        app:layout_constraintLeft_toRightOf="@id/ivPrevious"
+        app:layout_constraintTop_toTopOf="@id/ivPrevious" />
+    <!--下一个按钮-->
+    <ImageView
+        android:id="@+id/ivNext"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:scaleType="centerCrop"
+        android:layout_marginLeft="20dp"
+        android:adjustViewBounds="true"
+        android:onClick="onNext"
+        android:src="@mipmap/ic_next"
+        app:layout_constraintBottom_toBottomOf="@id/ivPause"
+        app:layout_constraintLeft_toRightOf="@id/ivPause"
+        app:layout_constraintTop_toTopOf="@id/ivPause" />
+    <!--播放时间-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:text="01:51 / 15:26"
+        android:textColor="#fff"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/ivNext"
+        app:layout_constraintLeft_toRightOf="@id/ivNext"
+        app:layout_constraintTop_toTopOf="@id/ivNext" />
+    <!--播放列表按钮-->
+    <ImageView
+        android:id="@+id/ivPlayList"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginRight="30dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_play_list"
+        app:layout_constraintBottom_toBottomOf="@id/ivPrevious"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ivPrevious" />
+    <!--进度条-->
+    <ProgressBar
+        android:id="@+id/progress"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toTopOf="@id/ivPrevious"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+    <!--播放列表-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPlayList"
+        android:layout_width="120dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="20dp"
+        android:background="#ee666666"
+        app:layout_constraintBottom_toTopOf="@id/ivPlayList"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
